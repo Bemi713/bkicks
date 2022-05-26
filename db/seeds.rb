@@ -1,6 +1,6 @@
 # Creating users:
-Bemi713 = User.create(username: "Bemi713", email: "Bemi713@123.com", password: "123456")
-Big_KO = User.create(username: 'Big_KO', email: 'BigKO@123.com', password: '123456')
+Bemi713 = User.create(username: "Bemi713", email: "Bemi713@gmail.com", password: "123456")
+Big_KO = User.create(username: 'Big_KO', email: 'BigKO@gmail.com', password: '123456')
 
 # Creating categories:
 basketball_shoes = Category.create(name: "basketball shoes")
