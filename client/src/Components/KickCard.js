@@ -3,7 +3,7 @@ import React from 'react'
 
 
 function KickCard({ name, desc, price, img, sold }) {
-    
+
     return (
         <>
         {/* <Navbar /> */}
@@ -13,8 +13,7 @@ function KickCard({ name, desc, price, img, sold }) {
               
                     <div class="con">
                      <p>Name: {name} </p>
-                     <h1 style={{backgroundColor: "lightblue"}}>Image: {img}</h1>
-                      <p>Desc: {desc}</p>
+                     <p>Desc: {desc}</p>
                       <p>Price: {price}</p>
                       <p> Sold: {sold} </p>
                       {/* <Link to={`/concerts/${id}`}><button class="button-85">See More</button></Link><br></br>
@@ -29,4 +28,3 @@ function KickCard({ name, desc, price, img, sold }) {
     
     export default KickCard;
  
-    

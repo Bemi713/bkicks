@@ -12,6 +12,11 @@ import Header from './Components/Header';
 
 import Navbar from './Components/Navbar';
 
+function setQuery(searchKey){ 
+  console.log(searchKey);
+
+}
+
 
 function App() {
   
@@ -32,11 +37,11 @@ return (
       <Header />
       <Home />
       <Login />
-      <Search />
+      <Search useQuery={setQuery}/>
       <SignInPage />
       <Navbar user={user} setUser={setUser}/> 
       <KickCard kicks={kicks} />
-      <KicksList kicks={kicks} />
+      <KicksList kicks={kicks} setKicks={setKicks} />
       
       
       <SignUp />  
