@@ -7,7 +7,7 @@ function KicksList({ kicks }) {
       <KickCard key={kick.id} id={kick.id} name={kick.name} image={kick.img} price={kick.price} desc={kick.desc} sold={kick.sold} />
       ));
     return (
-      <ul className='item'>
+      <ul className='kicks'>
       {renderKicks}
       </ul>
     

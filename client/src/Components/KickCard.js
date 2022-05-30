@@ -2,15 +2,18 @@ import React from 'react'
 // import { Link } from 'react-router-dom';
 
 
-function KickCard({ key, name, desc, price, img, sold }) {
+function KickCard({ name, desc, price, img, sold }) {
+    
     return (
         <>
         {/* <Navbar /> */}
-        <section className="menu-card">
-            <div key={key} class="">
+        <section className="kick-card">
+            <div  class="">
               <img class="" src={img} alt={name} />
-              <h2 class="">{name}</h2>
+              
                     <div class="con">
+                     <p>Name: {name} </p>
+                     <h1 style={{backgroundColor: "lightblue"}}>Image: {img}</h1>
                       <p>Desc: {desc}</p>
                       <p>Price: {price}</p>
                       <p> Sold: {sold} </p>
@@ -26,3 +29,4 @@ function KickCard({ key, name, desc, price, img, sold }) {
     
     export default KickCard;
  
+    

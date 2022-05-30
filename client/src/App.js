@@ -1,13 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+// import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 // import Kicks from './Components/Kicks'
-import KicksList from './Components/KicksList'
-import Search from './Components/Search'
-import KickCard from './Components/KickCard'
-// import Navbar from './Components/Navbar'
+import Home from './Components/Home'
+import Login from './Components/Login';
+import KicksList from './Components/KicksList';
+import Search from './Components/Search';
+import KickCard from './Components/KickCard';
+import SignUp from './Components/SignUp';
+import SignInPage from './Components/SigninPage';
+import Header from './Components/Header';
+
+import Navbar from './Components/Navbar';
+
 
 function App() {
   
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState("");
     const [kicks, setKicks] = useState([]);
 
 useEffect(() => {
@@ -21,10 +29,18 @@ console.log(kicks);
 return (
     <div>Kicks
    {/* <Kicks  />  */}
+      <Header />
+      <Home />
+      <Login />
       <Search />
-      {/* <Navbar user={user} setUser={setUser}/> */}
-      <KickCard />
-      <KicksList kicks={kicks} />  
+      <SignInPage />
+      <Navbar user={user} setUser={setUser}/> 
+      <KickCard kicks={kicks} />
+      <KicksList kicks={kicks} />
+      
+      
+      <SignUp />  
+      
 
 
     </div>
