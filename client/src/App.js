@@ -1,56 +1,69 @@
 import React, {useState, useEffect} from 'react';
-// import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 // import Kicks from './Components/Kicks'
-import Home from './Components/Home'
-import Login from './Components/Login';
+import Home from './Components/Home';
+import Header from './Components/Header';
+// import Login from './Components/Login';
 import KicksList from './Components/KicksList';
 import Search from './Components/Search';
-import KickCard from './Components/KickCard';
-import SignUp from './Components/SignUp';
+// import KickCard from './Components/KickCard';
 import SignInPage from './Components/SigninPage';
-import Header from './Components/Header';
 
+import NewKickForm from './Components/NewKickForm';
 import Navbar from './Components/Navbar';
-
-function setQuery(searchKey){ 
-  console.log(searchKey);
-
-}
 
 
 function App() {
   
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState({});
     const [kicks, setKicks] = useState([]);
+    const [filteredKicks, setFilteredKicks] = useState([]);
+    const [searchKey, setSearchKey] = useState('');
 
-useEffect(() => {
-    fetch('http://localhost:3000/items')
-    .then(res => res.json())
-    .then(data => setKicks(data));
-  }, []);
+    useEffect(() => {
+        fetch('http://localhost:3000/items')
+        .then(res => res.json())
+        .then(data => setKicks(data));
+      }, []);
 
-console.log(kicks);
-    
-return (
-    <div>Kicks
-   {/* <Kicks  />  */}
-      <Header />
-      <Home />
-      <Login />
-      <Search useQuery={setQuery}/>
-      <SignInPage />
-      <Navbar user={user} setUser={setUser}/> 
-      <KickCard kicks={kicks} />
-      <KicksList kicks={kicks} setKicks={setKicks} />
-      
-      
-      <SignUp />  
-      
+    useEffect(() => {
+      const filteredKicks = kicks.filter(kick => kick.name.toLowerCase().includes(searchKey.toLowerCase()))
+      setFilteredKicks(filteredKicks);
+    }, [searchKey]);
+
+    useEffect(() => {
+      fetch("http://localhost:3000/me").then((resp) => {
+        if (resp.ok) {
+          resp.json().then((user) => {
+            setUser(user)
+          });
+        }
+      })
+    }, []);
+
+    return (
 
 
-    </div>
-
-  )
+                 
+            <Router>
+            <Navbar user={user} setUser={setUser} /> 
+            <Switch>
+              <Route path="/" exact component={() => <Home />} >
+                <Header />
+                 <Home /> 
+                <NewKickForm />
+                <SignInPage setUser={setUser} />
+                
+              </Route>
+              <Route path="/kicks" exact component={() => <KicksList kicks={filteredKicks.length ? filteredKicks : kicks} setKicks={setKicks} />}>
+              <Search setQuery={setSearchKey} />
+              <KicksList kicks={filteredKicks.length ? filteredKicks : kicks} setKicks={setKicks} />
+             
+              </Route>
+              <Route path="/kicks/new" component={() => <NewKickForm />} />
+            </Switch>
+            </Router>
+      )
 }
 
 export default App

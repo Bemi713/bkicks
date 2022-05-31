@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
 function Navbar({user, setUser}) {
-  function handleLogout() {
-    fetch("/logout",{
+  const handleLogout = () => {
+    fetch("http://localhost:3000/logout",{
       method: "DELETE",
     }).then(() => setUser())
   }
@@ -15,7 +15,7 @@ function Navbar({user, setUser}) {
         <h5 class="logo-sub">"Never a bad day for some feet heat!"</h5>
       </div>
        
-        <div class="container green borderXwidth">
+        <div class="container red borderXwidth">
           {/* <Link to="/">Home</Link> */}
            {/* <Link to="/kicks">Kicks</Link>  */}
           
@@ -34,11 +34,11 @@ function Navbar({user, setUser}) {
           </div>
        
 
-        <div class="container green borderXwidth">
-          {/* <Link to="/">Home</Link> */}
+        <div class="container red borderXwidth">
+          <Link to="/">Home</Link>
           {/* <Link to="/kicks">Kicks</Link> */}
           
-          {/* <Link to="/" onClick={handleLogout}>Logout</Link> */}
+          <Link to="/" onClick={handleLogout}>Logout</Link>
         </div>
 
       </header>

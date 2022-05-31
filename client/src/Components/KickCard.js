@@ -8,16 +8,16 @@ function KickCard({ name, desc, price, img, sold }) {
         <>
         {/* <Navbar /> */}
         <section className="kick-card">
-            <div  class="">
+            <div  class="kickscard">
               <img class="" src={img} alt={name} />
               
-                    <div class="con">
-                     <p>Name: {name} </p>
-                     <p>Desc: {desc}</p>
-                      <p>Price: {price}</p>
-                      <p> Sold: {sold} </p>
-                      {/* <Link to={`/concerts/${id}`}><button class="button-85">See More</button></Link><br></br>
-                      <Link to={`/comments`}><button button class="button-85">Comment</button></Link> */}
+                     <div class="con">
+                      <p> {name} </p>
+                     <p> {desc}</p>
+                      <p> {price}</p>
+                      {/* <p> Sold: {!sold} </p>  */}
+                      {/* <Link to={`/kicks/${id}`}><button class="button-85">See More</button></Link><br></br>
+                      <Link to={`/home`}><button button class="button-85">Comment</button></Link> */}
                     </div>
             </div>
            

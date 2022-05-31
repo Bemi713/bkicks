@@ -1,8 +1,9 @@
-import React, { useState,useEffect } from "react";
-// import { button, error, input, FormField, label, textArea } from "../styles";
+import React, { useState, useEffect } from "react";
+
 
 function Signup({ onLogin }) {
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState([]);
@@ -18,14 +19,18 @@ function Signup({ onLogin }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name,
+        email,
         password,
+        username: name,
         password_confirmation: passwordConfirmation,
       }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => onLogin(user));
+        r.json().then((user) => {
+          setErrors([])
+          onLogin(user) 
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -46,6 +51,16 @@ function Signup({ onLogin }) {
           autoComplete="off"
           value={name}
           onChange={(e) => setName(e.target.value)}
+        />
+      </formField>
+      <formField>
+        <label htmlFor="username">Email</label>
+        <input
+          type="text"
+          id="email"
+          autoComplete="off"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
       </formField>
       <formField>
