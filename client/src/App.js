@@ -11,6 +11,7 @@ import SignInPage from './Components/SigninPage';
 
 import NewKickForm from './Components/NewKickForm';
 import Navbar from './Components/Navbar';
+import Checkout from './Components/Checkout';
 
 
 function App() {
@@ -41,6 +42,15 @@ function App() {
       })
     }, []);
 
+
+    function handleAddKick(newKick){
+      const updatedKicksArray =[...kicks, newKick];
+      setKicks(updatedKicksArray);
+
+      console.log(newKick);
+
+
+    }
     return (
 
 
@@ -51,7 +61,8 @@ function App() {
               <Route path="/" exact component={() => <Home />} >
                 <Header />
                  <Home /> 
-                <NewKickForm />
+                 {/* <Checkout /> */}
+                 <NewKickForm onAddKick={handleAddKick}/>
                 <SignInPage setUser={setUser} />
                 
               </Route>
@@ -61,6 +72,7 @@ function App() {
              
               </Route>
               <Route path="/kicks/new" component={() => <NewKickForm />} />
+              
             </Switch>
             </Router>
       )

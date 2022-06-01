@@ -11,12 +11,12 @@ function Navbar({user, setUser}) {
   return(
     <header>
       <div>
-        <h1 class="logo-name"> BnKicks </h1>
+        <h1 class="logo-name"> BnKicks 🔥</h1>
         <h5 class="logo-sub">"Never a bad day for some feet heat!"</h5>
       </div>
        
         <div class="container red borderXwidth">
-          {/* <Link to="/">Home</Link> */}
+           <Link to="/">Home</Link> 
            {/* <Link to="/kicks">Kicks</Link>  */}
           
           {/* <Link to="/signinpage">Sign-In</Link>  */}
@@ -29,14 +29,14 @@ function Navbar({user, setUser}) {
   
       <header>
           <div>
-          <h1 class="logo-name"> BnKicks </h1>
+          <h1 class="logo-name"> BnKicks 🔥</h1>
           <h5 class="logo-sub">"Never a bad day for some feet heat!"</h5>
           </div>
        
 
         <div class="container red borderXwidth">
           <Link to="/">Home</Link>
-          {/* <Link to="/kicks">Kicks</Link> */}
+          <Link to="/kicks">Kicks</Link> 
           
           <Link to="/" onClick={handleLogout}>Logout</Link>
         </div>
