@@ -1,5 +1,5 @@
 import React from "react";
-import "./itemStyles.css";
+// import "./itemStyles.css";
 
 // React Component to display individual item
 const Item = ({ name, category }) => (

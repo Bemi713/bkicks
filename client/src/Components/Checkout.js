@@ -9,9 +9,9 @@
 //   const [inputs, setInputs] = useState({});
 
 //   const handleChange = (event) => {
-//     const name = event.target.name;
-//     const value = event.target.value;
-//     setInputs(values => ({...values, [name]: value}))
+//   const name = event.target.name;
+//   const value = event.target.value;
+//   setInputs(values => ({...values, [name]: value}))
 //   }
 
 //   const handleSubmit = (event) => {
@@ -27,10 +27,12 @@
 //         "Content-Type": "application/json",
 //       },
 //       body: JSON.stringify({
-//         house_number: house_number,
-//         street: street,
+//         streetnumber: street_number,
+//         streetname: street,
 //         city: city,
 //         state: state,
+        // zipcode:zipzode,
+
 //         category_id: category_id,
 //       }),
 //      })

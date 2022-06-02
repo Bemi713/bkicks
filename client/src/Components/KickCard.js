@@ -1,5 +1,5 @@
 import React from 'react'
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function KickCard({ name, desc, price, img, sold }) {
@@ -15,9 +15,8 @@ function KickCard({ name, desc, price, img, sold }) {
                       <p> {name} </p>
                      <p> {desc}</p>
                       <p> {price}</p>
-                      {/* <p> Sold: {!sold} </p>  */}
-                      {/* <Link to={`/kicks/${id}`}><button class="button-85">See More</button></Link><br></br>
-                      <Link to={`/home`}><button button class="button-85">Comment</button></Link> */}
+                      {/* <p> Sold: {!sold} </p>  */}                      
+                      <Link to={`/checkout`}><button button class="button-85"> Buy </button></Link> 
                     </div>
             </div>
            

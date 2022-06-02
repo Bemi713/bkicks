@@ -8,10 +8,10 @@ import KicksList from './Components/KicksList';
 import Search from './Components/Search';
 // import KickCard from './Components/KickCard';
 import SignInPage from './Components/SigninPage';
-
 import NewKickForm from './Components/NewKickForm';
 import Navbar from './Components/Navbar';
 import Checkout from './Components/Checkout';
+import './App.css';
 
 
 function App() {
@@ -61,6 +61,7 @@ function App() {
               <Route path="/" exact component={() => <Home />} >
                 <Header />
                  <Home /> 
+              
                  {/* <Checkout /> */}
                  <NewKickForm onAddKick={handleAddKick}/>
                 <SignInPage setUser={setUser} />
