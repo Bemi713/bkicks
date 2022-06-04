@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   
-  #  resources :orders [:index, :show]
-  # resources :category_items [:index, :show]
-  # resources :categories [:index, :show]
-  resources :items, only: [:index, :show]
+  resources :orders, only: [:index, :show, :create]
+  resources :category_items, only: [:index, :show]
+  resources :categories, only: [:index, :show]
+  resources :items, only: [:index, :show, :create, :destroy, :update]
   resources :users, only: [:index, :show, :destroy]
-  resources :sessions, only: [:destroy]
+  post "/items/sold", to: "items#sold"
   post "/signup", to: "users#create"
   get "/me", to: "sessions#me"
   post "/login", to: "sessions#create"

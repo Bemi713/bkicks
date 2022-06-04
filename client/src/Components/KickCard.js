@@ -1,27 +1,45 @@
-import React from 'react'
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 
 
-function KickCard({ name, desc, price, img, sold }) {
+function KickCard({ name, desc, price, img, sold, addToCart }) {
+  // const { name, desc, price, img } = kicks;
+    const [isInStock, setIsInStock] = useState(true);
+    
+ function handleToggleStock() {
+   setIsInStock((isInStock) => !isInStock);
+ }
 
+ const add = () => {
+   addToCart();
+ }
+    
+    
     return (
-        <>
-        {/* <Navbar /> */}
+      <>
+        
         <section className="kick-card">
             <div  class="kickscard">
-              <img class="" src={img} alt={name} />
+              <img class="" src={img} alt={name} width={400}/>
               
                      <div class="con">
-                      <p> {name} </p>
+                      <h4> {name} </h4>
                      <p> {desc}</p>
-                      <p> {price}</p>
-                      {/* <p> Sold: {!sold} </p>  */}                      
-                      <Link to={`/checkout`}><button button class="button-85"> Buy </button></Link> 
+                      <p> ${price}</p>
+                        {/* <p> Sold: {!sold} </p>   */}
+                       {isInStock ? (
+                         <button className="primary" onClick={handleToggleStock}> 
+                            In Stock 
+                         </button>
+                       ) : (
+                         <button onClick={handleToggleStock}>Out of Stock</button>
+                       )}                       
+                      <button onClick={() => addToCart()} class="button-85"> Add to Cart </button>
                     </div>
             </div>
            
         </section>
-        </>
+      </>
       );
     }
     

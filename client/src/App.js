@@ -3,16 +3,15 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 // import Kicks from './Components/Kicks'
 import Home from './Components/Home';
 import Header from './Components/Header';
-// import Login from './Components/Login';
+import Login from './Components/Login';
 import KicksList from './Components/KicksList';
 import Search from './Components/Search';
-// import KickCard from './Components/KickCard';
 import SignInPage from './Components/SigninPage';
 import NewKickForm from './Components/NewKickForm';
 import Navbar from './Components/Navbar';
 import Checkout from './Components/Checkout';
+import Cart from './Components/Cart'; 
 import './App.css';
-
 
 function App() {
   
@@ -22,7 +21,7 @@ function App() {
     const [searchKey, setSearchKey] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:3000/items')
+        fetch('/items')
         .then(res => res.json())
         .then(data => setKicks(data));
       }, []);
@@ -33,7 +32,7 @@ function App() {
     }, [searchKey]);
 
     useEffect(() => {
-      fetch("http://localhost:3000/me").then((resp) => {
+      fetch("/me").then((resp) => {
         if (resp.ok) {
           resp.json().then((user) => {
             setUser(user)
@@ -56,23 +55,24 @@ function App() {
 
                  
             <Router>
-            <Navbar user={user} setUser={setUser} /> 
+            <Header />
+            <Navbar user={user} setUser={setUser} />
+            
             <Switch>
-              <Route path="/" exact component={() => <Home />} >
-                <Header />
+            <Route path="/" exact component={() => <Home />} >                
                  <Home /> 
-              
-                 {/* <Checkout /> */}
                  <NewKickForm onAddKick={handleAddKick}/>
                 <SignInPage setUser={setUser} />
-                
               </Route>
               <Route path="/kicks" exact component={() => <KicksList kicks={filteredKicks.length ? filteredKicks : kicks} setKicks={setKicks} />}>
               <Search setQuery={setSearchKey} />
               <KicksList kicks={filteredKicks.length ? filteredKicks : kicks} setKicks={setKicks} />
-             
-              </Route>
-              <Route path="/kicks/new" component={() => <NewKickForm />} />
+              
+              </Route>              
+              <Route exact path="/kicks/new" component={() => <NewKickForm />} />
+              
+              <Route path="/checkout" component={() => <Checkout />} />
+              <Route path="/cart" component={() => <Cart />} />
               
             </Switch>
             </Router>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Navbar({user, setUser}) {
   const handleLogout = () => {
-    fetch("http://localhost:3000/logout",{
+    fetch("/logout",{
       method: "DELETE",
     }).then(() => setUser())
   }
@@ -15,11 +15,11 @@ function Navbar({user, setUser}) {
         <h5 class="logo-sub">"Never a bad day for some feet heat!"</h5>
       </div>
        
-        <div class="container red borderXwidth">
+        <div class="navbar">
            <Link to="/">Home</Link> 
-           {/* <Link to="/kicks">Kicks</Link>  */}
+           <Link to="/kicks">Kicks</Link> 
           
-          {/* <Link to="/signinpage">Sign-In</Link>  */}
+           
         </div>
     
   </header>
@@ -34,11 +34,16 @@ function Navbar({user, setUser}) {
           </div>
        
 
-        <div class="container red borderXwidth">
-          <Link to="/">Home</Link>
-          <Link to="/kicks">Kicks</Link> 
-          
-          <Link to="/" onClick={handleLogout}>Logout</Link>
+        <div class="navbar">
+        <ul>
+         <li> <Link to="/">Home</Link> </li>
+
+          <li> <Link to="/kicks">Kicks</Link> </li>
+
+         <li> <Link to="/cart">Cart</Link> </li>
+
+          <li> <Link to="/" onClick={handleLogout}>Logout</Link> </li>
+        </ul>  
         </div>
 
       </header>

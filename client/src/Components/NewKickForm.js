@@ -5,11 +5,11 @@ function NewKickForm({ onAddKick}) {
   const [image, setImage] =useState("");
   const [desc, setDesc] =useState("");
   const [price, setPrice] =useState("");
-  // const [category_id, setCategory_Id] =useState("");
+  const [category_id, setCategory_Id] =useState(1);
 
 function handleSubmit(e){
   e.preventDefault();
-  fetch("http://localhost:4001/items", {
+  fetch("/items", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -19,7 +19,7 @@ function handleSubmit(e){
       img: image,
       desc: desc,
       price: price,
-      // category_id: category_id,
+      category_id: category_id,
     }),
    })
     .then((r) => r.json())
@@ -47,7 +47,7 @@ function handleSubmit(e){
       <input type="text" name="image" placeholder="Shoe Image" value={image} 
       onChange={(e) => setImage(e.target.value)}/>
 
-    <input type="text" name="description" placeholder="Shoe Description" value={desc} 
+      <input type="text" name="description" placeholder="Shoe Description" value={desc} 
       onChange={(e) => setDesc(e.target.value)}/>
 
       <input type="number" name="price" step="0.01" placeholder=" Shoe Price" value={price} 
