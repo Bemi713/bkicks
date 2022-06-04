@@ -55,7 +55,7 @@ function handleSubmit(e){
       
       <button type="submit"> Add Kicks </button>
 
-      {/* <button onclick="deleteItem(this)">Delete</button> */}
+      {/* <button onClick={() => handleRemove(kick.id)}>Remove</button> */}
 
     </form>
     

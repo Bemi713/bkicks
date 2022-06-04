@@ -61,8 +61,9 @@ function App() {
             <Switch>
             <Route path="/" exact component={() => <Home />} >                
                  <Home /> 
-                 <NewKickForm onAddKick={handleAddKick}/>
-                <SignInPage setUser={setUser} />
+                
+                 <SignInPage />
+                
               </Route>
               <Route path="/kicks" exact component={() => <KicksList kicks={filteredKicks.length ? filteredKicks : kicks} setKicks={setKicks} />}>
               <Search setQuery={setSearchKey} />
@@ -70,10 +71,13 @@ function App() {
               
               </Route>              
               <Route exact path="/kicks/new" component={() => <NewKickForm />} />
-              
+              <NewKickForm onAddKick={handleAddKick}/>
               <Route path="/checkout" component={() => <Checkout />} />
+              
               <Route path="/cart" component={() => <Cart />} />
               
+              
+
             </Switch>
             </Router>
       )

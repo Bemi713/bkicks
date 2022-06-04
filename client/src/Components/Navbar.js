@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+
 function Navbar({user, setUser}) {
   const handleLogout = () => {
     fetch("/logout",{
@@ -39,6 +40,8 @@ function Navbar({user, setUser}) {
          <li> <Link to="/">Home</Link> </li>
 
           <li> <Link to="/kicks">Kicks</Link> </li>
+
+          <li> <Link to="/kicks/new">Sell Your Kicks </Link> </li>
 
          <li> <Link to="/cart">Cart</Link> </li>
 

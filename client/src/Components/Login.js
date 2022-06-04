@@ -30,14 +30,14 @@ function Login({ onLogin }) {
 
   return (
     <div class="login-bg">
-      <h1 class="login-label"> Log In:</h1>
+      <h3 class="login-label"> Log In:</h3>
     <form onSubmit={handleSubmit}>
       <formField>
         <label htmlFor="username">Username</label>
         <input
           type="text"
           id="name"
-          autoComplete="off"
+          autoComplete="on"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
