@@ -5,14 +5,14 @@
   }
 
 
-.body {
+/* .body {
     background-color: #040a15;
     color: rgba(183, 10, 19, 0.829);
     padding: 95px;
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    text-align: center; */
 
-}
+/* } */
 
 .headercard{
 
@@ -23,25 +23,31 @@
     text-align: center;
 }
 
-.searchbar
+/* .searchbar{} */
+
+kickslist{
+    display: inline-grid;
+    background-color: #57595b;
+    color: rgba(183, 10, 19, 0.829);
+    padding: 95px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
 
 .kickscard{ 
     
-    margin-bottom: 30px;
-    border: solid;
-    border-width: 5px;
-    height: 50px;
-    margin-right: 50px;
-    margin-left: 50px;
-    display: inline-table;
-    padding-bottom: 5px;
-    width: 500px;
-
+    
+    text-align: center;
+   
+    background-color: #dedfe1;
+    color: rgba(183, 10, 19, 0.829);
+    
+    font-family: 'Courier New', Courier, monospace;
   
 }
 
 .newkickform{
-        background-color : #9cf;
+        background-color : rgb(222, 223, 225);
         color : #000;
 
         }

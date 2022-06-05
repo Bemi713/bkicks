@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-// import Kicks from './Components/Kicks'
+
 import Home from './Components/Home';
 import Header from './Components/Header';
 import Login from './Components/Login';
@@ -73,7 +73,7 @@ function App() {
               <Route exact path="/kicks/new" component={() => <NewKickForm />} />
               <NewKickForm onAddKick={handleAddKick}/>
               <Route path="/checkout" component={() => <Checkout />} />
-              
+
               <Route path="/cart" component={() => <Cart />} />
               
               

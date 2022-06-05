@@ -33,7 +33,7 @@ function KicksList({ kicks }) {
     return (
    
 
-      <div className='kicks'>
+      <div className='kickslist'>
     <Link to={`/checkout`}><button button class="button-85"> Checkout Now  </button></Link> 
 
       {renderKicks}
