@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import KickCard from "./KickCard";
 
 function unique(value, index, self) {
@@ -7,47 +7,39 @@ function unique(value, index, self) {
 }
 
 function KicksList({ kicks }) {
-    const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]);
 
-    const addToCart =async  (kick) => {
-      const existingCartKicks = JSON.parse(localStorage.getItem('cart')) || [];
-      let allCartKicks = [...cart, ...existingCartKicks, kick];
-      allCartKicks = allCartKicks.filter(unique);
+  const addToCart = async (kick) => {
+    const existingCartKicks = JSON.parse(localStorage.getItem('cart')) || [];
+    let allCartKicks = [...cart, ...existingCartKicks, kick];
+    allCartKicks = allCartKicks.filter(unique);
 
-      setCart(allCartKicks);
+    setCart(allCartKicks);
 
-      localStorage.setItem('cart', JSON.stringify(allCartKicks));
-    }
+    localStorage.setItem('cart', JSON.stringify(allCartKicks));
+  }
 
-    const renderKicks = kicks.map((kick)=> (
-      <KickCard key={kick.id} 
-      id={kick.id} 
-      name={kick.name}
-      img={kick.img} 
-      price={kick.price} 
-      desc={kick.desc} 
-      sold={kick.sold}
-      addToCart={() => addToCart(kick)}
+  let renderKicks = [];
+  if (kicks.length) {
+    renderKicks = kicks.map((kick) => (
+      <KickCard key={kick.id}
+        id={kick.id}
+        name={kick.name}
+        img={kick.img}
+        price={kick.price}
+        desc={kick.desc}
+        sold={kick.sold}
+        addToCart={() => addToCart(kick)}
       />
-      ));
-    return (
-   
+    ));
+  }
 
-      <div className='kickslist'>
-    <Link to={`/checkout`}><button button class="button-85"> Checkout Now  </button></Link> 
-
+  return (
+    <div className='kickslist'>
+      <Link to={`/checkout`}><button button class="button-85"> Checkout Now  </button></Link>
       {renderKicks}
-
-
-      </div>
-   
- );  
-  
-        }
-    
-
-        
-    
-
+    </div>
+  );
+}
 
 export default KicksList
