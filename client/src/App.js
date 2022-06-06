@@ -54,7 +54,7 @@ function App() {
       <Switch>
         <Route path="/" exact component={() => <Home />} >
           <Home />
-          <SignInPage setUser={setUser} />
+          { !user?.id && <SignInPage setUser={setUser} /> }
         </Route>
         <Route path="/kicks" exact component={() => <KicksList kicks={filteredKicks.length ? filteredKicks : kicks} setKicks={setKicks} />}>
           <Search setQuery={setSearchKey} />
