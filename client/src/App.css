@@ -40,7 +40,7 @@ kickslist{
     text-align: center;
    
     background-color: #dedfe1;
-    color: rgba(183, 10, 19, 0.829);
+    color: rgba(65, 48, 216, 0.829);
     
     font-family: 'Courier New', Courier, monospace;
   
@@ -62,7 +62,7 @@ kickslist{
 
 .item-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: inline-grid;
     gap: 8px;
     padding: 10px;
     border: 1px solid black;

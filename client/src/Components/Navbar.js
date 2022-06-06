@@ -30,7 +30,7 @@ function Navbar({ user, setUser }) {
         <div>
           <h1 class="logo-name"> BnKicks 🔥</h1>
           <h5 class="logo-sub">"Never a bad day for some feet heat!"</h5>
-          { user.id && <h3>Hi {user.username}</h3> }
+          { user.id && <h3> Hi {user.username}</h3> }
         </div>
         <div class="navbar">
           <ul>
